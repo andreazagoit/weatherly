@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- set page title -->
+    <title>MeteoList</title>
+    <!-- import logo icon -->
+    <link rel="icon" href="./assets/logo.png">
+    <!-- import default style -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- import font awesome -->
+    <script src="https://kit.fontawesome.com/a4797f848f.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Animated cover -->
+    <div class="cover">
+        <img src="./assets/logo.png">
+    </div>
+    <!-- Header -->
+    <div class="header">
+        <div class="container">
+            <div class="header__brand">
+                <img src="./assets/logo.png" height="48px" width="48px">
+                <h2 class="name">Weatherly</h2>
+            </div>
+            <div class="header__input">
+                <div id="header__inputStatus">
+                    <i class="fas fa-check"></i>
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="header__inputInput">
+                    <input type="text">
+                    <button onclick="addCity()">ADD</button>
+                    <div class="alert">
+                        <p>Add you first city</p>
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Weather card list -->
+   <div class="container weather">
+        <div class="weather-card-list"></div>
+   </div>
+<!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <h2>Designed and coded from scratch by <a href='https://andreazago.it'>Andrea Zago</a> © 2020</h2>
+            <div class="footer__icon">
+                <a href="https://www.facebook.com/andrea.zago.581/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/andreazago.ph/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/andrea-zago-1495941b9/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- import main js file -->
+    <script src="./js/main.js"></script>
+
+</body>
+
+</html>

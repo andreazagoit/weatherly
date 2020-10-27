@@ -1,0 +1,355 @@
+/* IMPORT */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap');
+
+/* VARIABLES */
+$white: #fff;
+$black: #160d33;
+
+$tablet: 768px;
+$phone: 425px;
+
+/* RESET */
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Rubik';
+    font-weight: 300;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+p {
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+}
+
+body {
+    background-color: $black;
+    color: $white;
+    padding-top: 100px;
+    position: relative;
+}
+
+/* COMMON CONTAINER */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* NAVBAR */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 200;
+    background-color: $black;
+
+    /* FIX CONTAINER */
+    .container {
+        display: flex;
+        flex-direction: row;
+        height: 100px;
+        align-items: center;
+        justify-content: space-between;
+
+        /* BRAND */
+        .header__brand {
+            display: flex;
+            align-items: center;
+
+            /* NAMING */
+            .name {
+                padding-left: 10px;
+
+                @media (max-width: $phone) {
+                    display: none;
+                }
+
+            }
+        }
+
+        /* CITY INPUT */
+        .header__input {
+            display: flex;
+
+            &Input {
+                display: flex;
+                border: 1px solid white;
+                border-radius: 10px;
+                position: relative;
+
+                /* INPUT */
+                input {
+                    border-radius: 8px 0 0 8px;
+                    background: none;
+                    border: none;
+                    padding: 10px 15px;
+                    color: $white;
+
+                    @media (max-width: $phone) {
+                        width: 150px;
+                    }
+                }
+
+                /* BUTTON */
+                button {
+                    border-radius: 0 8px 8px 0;
+                    background: none;
+                    border: none;
+                    transition: all .5s;
+                    color: $black;
+                    background-color: white;
+                    padding: 0 12px;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: #ddd;
+                    }
+                }
+
+                *:focus {
+                    outline: none;
+                }
+
+                /* EMPTY CITY */
+                .alert {
+                    background-color: purple;
+                    position: absolute;
+                    top: calc(100% + 10px);
+                    padding: 20px;
+                    border-radius: 20px;
+                    text-align: right;
+                    display: flex;
+                    right: 0;
+
+                    i {
+                        margin-left: 10px;
+                    }
+                }
+            }
+
+            /* CHECK IF CITY EXIST */
+            #header__inputStatus {
+                transition: all .5s;
+                display: flex;
+                font-size: 28px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0 10px;
+
+                /* HIDE WRONG ICON */
+                .fa-check {
+                    display: none;
+                }
+
+                .fa-times {
+                    display: none;
+                }
+
+                &.true {
+
+                    .fa-check {
+                        display: inherit;
+                    }
+
+                    .fa-times {
+                        display: none;
+                    }
+
+                }
+
+                &.false {
+
+                    .fa-check {
+                        display: none;
+                    }
+
+                    .fa-times {
+                        display: inherit;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* WEATHER-CARD-LIST */
+
+/* container */
+.weather {
+    min-height: calc(100vh - 204px);
+
+    .weather-card-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        /* CITY METEO CARD */
+        .weather-card {
+            border-radius: 15px;
+            width: calc((100% / 2) - (20px / 2));
+            height: 150px;
+            padding: 20px 40px;
+            background-size: cover !important;
+            object-fit: contain;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            @media (max-width: $tablet) {
+                width: 100%;
+            }
+
+            /* DELETE ABSOLUTE ICON */
+            &__delete {
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                height: 40px;
+                width: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #fff3;
+                }
+            }
+
+            /* CARD CONTENT */
+            &__content {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: space-evenly;
+
+                i {
+                    font-size: 48px;
+                    margin-bottom: 10px;
+                }
+
+                .weather-card__contentMeteo {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+
+                    p {
+                        margin-left: 10px;
+                    }
+                }
+
+                .weather-card__contentCity {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                    width: 100%;
+
+                    h1 {
+                        font-size: 48px;
+                        margin-top: -10px;
+                    }
+                }
+            }
+
+            /* SET BACKGROUND */
+            &.sunny {
+                background: url('../assets/sun.png')
+            }
+
+            &.rain {
+                background: url('../assets/rain.png')
+            }
+
+            &.clouds {
+                background: url('../assets/clouds.png')
+            }
+
+            &.default {
+                background: grey
+            }
+        }
+    }
+
+    /* SET FOOTER TO BOTTOM PAGE */
+    @media (max-width: $tablet) {
+        min-height: calc(100vh - 226px);
+    }
+}
+
+/* FOOTER */
+.footer {
+    .container {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a,
+        h2 {
+            color: $white;
+            font-size: 18px;
+
+        }
+
+        .footer__icon {
+            display: flex;
+            gap: 10px;
+
+            i {
+                font-size: 22px;
+                padding: 10px;
+                cursor: pointer;
+            }
+        }
+
+        @media (max-width: $tablet) {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+}
+
+/* COVER */
+.cover {
+    display: flex;
+    background-color: $black;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: 900;
+    color: black;
+    /* ANIMATION */
+    animation: coverAnimation 2s forwards;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        width: 30vw;
+        height: 30vw;
+    }
+
+    @keyframes coverAnimation {
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+}
