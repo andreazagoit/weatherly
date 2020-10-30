@@ -17,7 +17,7 @@ input.addEventListener('input', (event) => {
     /* check if city exist */
     if (input.value !== '') {
         try {
-            fetch("http://api.openweathermap.org/data/2.5/weather?q=" + input.value + "&appid=" + API_KEY + "&units=metric")
+            fetch(`http://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=${API_KEY}&units=metric`)
                 .then(data => {
                     if (data.status == 200) {
                         /* City exist */
@@ -57,12 +57,12 @@ const getData = () => {
     if (cityList) {
         cityList.forEach(city => {
             try {
-                fetch("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + API_KEY + "&units=metric")
+                fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
                     .then(data => {
                         if (data.status == 200) {
                             /* City exist */
                             data.json().then(JSONdata => {
-                                container.innerHTML += '<div class="weather-card ' + setWeather(JSONdata.weather[0].main) + '"><div class="weather-card__content"><div class="weather-card__contentMeteo"><i class="fas ' + setIcon(JSONdata.weather[0].main) + '"></i><p>' + JSONdata.weather[0].main + '</p></div><div class="weather-card__contentCity"><h1>' + Math.round(JSONdata.main.temp) + '°' + '</h1><h2>' + JSONdata.name + '</h2></div></div ><div class="weather-card__delete" onClick="removeCity(' + "'" + JSONdata.name + "'" + ')"><i class="fas fa-times"></i></div></div >'
+                                container.innerHTML += `<div class="weather-card ${setWeather(JSONdata.weather[0].main)}"><div class="weather-card__content"><div class="weather-card__contentMeteo"><i class="fas ${setIcon(JSONdata.weather[0].main)} "></i><p> ${JSONdata.weather[0].main} </p></div><div class="weather-card__contentCity"><h1> ${Math.round(JSONdata.main.temp)} °</h1><h2>${JSONdata.name}</h2></div></div ><div class="weather-card__delete" onClick="removeCity('${JSONdata.name}')"><i class="fas fa-times"></i></div></div >`
                             })
                         }
                     })
