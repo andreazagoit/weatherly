@@ -330,15 +330,15 @@ body {
 }
 
 .weather .weather-card-list .weather-card.sunny {
-  background: url("../../assets/sun.png");
+  background: url("./../assets/sun.png");
 }
 
 .weather .weather-card-list .weather-card.rain {
-  background: url("../../assets/rain.png");
+  background: url("./../assets/rain.png");
 }
 
 .weather .weather-card-list .weather-card.clouds {
-  background: url("../../assets/clouds.png");
+  background: url("./../assets/clouds.png");
 }
 
 .weather .weather-card-list .weather-card.default {
