@@ -44,7 +44,7 @@ export const getData = () => {
             const lat = GEOData.coords.latitude;
             const lon = GEOData.coords.longitude;
             try {
-                fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${window.API_KEY}&units=metric`)
+                fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${window.API_KEY}&units=metric`)
                     .then(data => {
                         if (data.status == 200) {
                             data.json().then(JSONdata => {
@@ -62,7 +62,7 @@ export const getData = () => {
 
     try {
         if (cityList.length > 0) {
-            document.querySelector('.alert').style.display = 'none'
+            console.log('City List Exist');
         }
     } catch (error) {
         const cityList = []
@@ -72,7 +72,7 @@ export const getData = () => {
     if (cityList) {
         cityList.forEach(city => {
             try {
-                fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${window.API_KEY}&units=metric`)
+                fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${window.API_KEY}&units=metric`)
                     .then(data => {
                         if (data.status == 200) {
                             data.json().then(JSONdata => {

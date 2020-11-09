@@ -2,6 +2,13 @@ import API_KEY from './env'
 import { addCity, removeCity, getData } from './city'
 import { setStatus } from './utils'
 
+/* REDIRECT TO HTTPS */
+var loc = window.location.href + '';
+if (loc.indexOf('http://') == 0) {
+    window.location.href = loc.replace('http://', 'https://');
+}
+
+
 /* SET API KEY */
 window.API_KEY = API_KEY
 
@@ -20,7 +27,7 @@ const input = document.querySelector('input')
 input.addEventListener('input', (event) => {
     if (input.value !== '') {
         try {
-            fetch(`http://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=${API_KEY}&units=metric`)
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=${API_KEY}&units=metric`)
                 .then(data => {
                     if (data.status == 200) {
                         /* CITY EXIST */
