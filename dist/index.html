@@ -7,7 +7,7 @@
     <!-- set page title -->
     <title>MeteoList</title>
     <!-- import logo icon -->
-    <link rel="icon" href="./assets/logo.png">
+    <link rel="icon" href="../assets/logo.png">
     <!-- import default style -->
     <link rel="stylesheet" href="./css/style.css">
     <!-- import font awesome -->
@@ -17,13 +17,13 @@
 <body>
     <!-- Animated cover -->
     <div class="cover">
-        <img src="./assets/logo.png">
+        <img src="../assets/logo.png">
     </div>
     <!-- Header -->
     <div class="header">
         <div class="container">
             <div class="header__brand">
-                <img src="./assets/logo.png" height="48px" width="48px">
+                <img src="../assets/logo.png" height="48px" width="48px">
                 <h2 class="name">Weatherly</h2>
             </div>
             <div class="header__input">
@@ -33,7 +33,7 @@
                 </div>
                 <div class="header__inputInput">
                     <input type="text">
-                    <button onclick="addCity()">ADD</button>
+                    <button onclick="addCity(cityName)">ADD</button>
                     <div class="alert">
                         <p>Add you first city</p>
                         <i class="fas fa-arrow-up"></i>
@@ -43,10 +43,10 @@
         </div>
     </div>
     <!-- Weather card list -->
-   <div class="container weather">
+    <div class="container weather">
         <div class="weather-card-list"></div>
-   </div>
-<!-- Footer -->
+    </div>
+    <!-- Footer -->
     <div class="footer">
         <div class="container">
             <h2>Designed and coded from scratch by <a href='https://andreazago.it'>Andrea Zago</a> © 2020</h2>
@@ -60,7 +60,7 @@
     </div>
 
     <!-- import main js file -->
-    <script src="./js/main.js"></script>
+    <script src="./bundle.js"></script>
 
 </body>
 
